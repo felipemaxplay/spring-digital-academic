@@ -4,6 +4,7 @@ import br.com.felipemaxplay.digitalacademic.entity.PhysicalAssessment;
 import br.com.felipemaxplay.digitalacademic.entity.Student;
 import br.com.felipemaxplay.digitalacademic.entity.form.StudentForm;
 import br.com.felipemaxplay.digitalacademic.repository.StudentRepository;
+import jakarta.persistence.NoResultException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,5 +41,11 @@ public class StudentService implements IStudentService {
     @Override
     public void deleteById(Long id) {
 
+    }
+
+    @Override
+    public List<PhysicalAssessment> getAllAssessmentsById(Long id) {
+        Student student = repository.findById(id).orElseThrow(() -> new NoResultException(String.format("Student with id %d not found", id)));
+        return student.getAssessments();
     }
 }

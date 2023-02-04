@@ -33,4 +33,11 @@ public class StudentController implements IStudentController {
     public Student create(@NonNull @Valid @RequestBody StudentForm form) {
         return studentService.save(form);
     }
+
+    @Override
+    @GetMapping(path = "/Assessments/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<PhysicalAssessment> getAllAssAssessment(@PathVariable(name = "id") Long id) {
+        return studentService.getAllAssessmentsById(id);
+    }
 }

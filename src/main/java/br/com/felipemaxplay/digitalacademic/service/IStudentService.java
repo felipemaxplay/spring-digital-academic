@@ -16,4 +16,6 @@ public interface IStudentService {
     Student updateById(Long id, StudentForm formUpdate);
 
     void deleteById(Long id);
+
+    List<PhysicalAssessment> getAllAssessmentsById(Long id);
 }
