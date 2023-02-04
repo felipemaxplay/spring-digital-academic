@@ -16,6 +16,12 @@ public class Tuition {
         this.tuitionDate = tuitionDate;
     }
 
+    public Tuition(Long id, Student student, LocalDate tuitionDate) {
+        this.id = id;
+        this.student = student;
+        this.tuitionDate = tuitionDate;
+    }
+
     public Student getStudent() {
         return student;
     }

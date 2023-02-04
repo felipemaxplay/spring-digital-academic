@@ -24,6 +24,15 @@ public class Student {
         this.assessments = assessments;
     }
 
+    public Student(Long id, String name, String cpf, String neighborhood, LocalDate birthDate, List<PhysicalAssessment> assessments) {
+        this.id = id;
+        this.name = name;
+        this.cpf = cpf;
+        this.neighborhood = neighborhood;
+        BirthDate = birthDate;
+        this.assessments = assessments;
+    }
+
     public Long getId() {
         return id;
     }

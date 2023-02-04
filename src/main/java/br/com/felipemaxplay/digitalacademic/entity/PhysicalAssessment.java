@@ -20,6 +20,14 @@ public class PhysicalAssessment {
         this.height = height;
     }
 
+    public PhysicalAssessment(Long id, Student student, LocalDate assessmentDate, double weight, double height) {
+        this.id = id;
+        this.student = student;
+        this.assessmentDate = assessmentDate;
+        this.weight = weight;
+        this.height = height;
+    }
+
     public Long getId() {
         return id;
     }
