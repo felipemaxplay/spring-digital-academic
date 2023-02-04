@@ -9,5 +9,5 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: digital-academic
-      ports:
-        - 5432:5432
+    ports:
+      - 5432:5432
