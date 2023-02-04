@@ -1,13 +1,23 @@
 package br.com.felipemaxplay.digitalacademic.entity;
 
+import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Entity
+@Table(name = "da_tuition")
 public class Tuition {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "student_id")
     private Student student;
+
+    @Column(name = "tuition_date", nullable = false)
     private LocalDate tuitionDate = LocalDate.now();
 
     @Deprecated

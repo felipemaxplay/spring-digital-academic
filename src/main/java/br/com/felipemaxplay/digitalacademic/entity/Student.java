@@ -1,5 +1,8 @@
 package br.com.felipemaxplay.digitalacademic.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
 
 import java.time.LocalDate;
@@ -7,17 +10,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
+@Table(name = "da_students")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name", nullable = false, length = 50)
     private String name;
 
+    @Column(name = "cpf", unique = true, nullable = false, length = 14)
     private String cpf;
 
+    @Column(name = "neighborhood", nullable = false, length = 60)
     private  String neighborhood;
 
-    private LocalDate BirthDate;
+    @Column(name = "birth_date", nullable = false)
+    private LocalDate birthDate;
 
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<PhysicalAssessment> assessments = new ArrayList<>();
 
     @Deprecated
@@ -29,7 +43,7 @@ public class Student {
         this.name = Objects.requireNonNull(name);
         this.cpf = Objects.requireNonNull(cpf);
         this.neighborhood = Objects.requireNonNull(neighborhood);
-        BirthDate = Objects.requireNonNull(birthDate);
+        this.birthDate = Objects.requireNonNull(birthDate);
         this.assessments = Objects.requireNonNull(assessments);
     }
 
@@ -39,7 +53,7 @@ public class Student {
         this.name = Objects.requireNonNull(name);
         this.cpf = Objects.requireNonNull(cpf);
         this.neighborhood = Objects.requireNonNull(neighborhood);
-        BirthDate = Objects.requireNonNull(birthDate);
+        this.birthDate = Objects.requireNonNull(birthDate);
         this.assessments = Objects.requireNonNull(assessments);
     }
 
@@ -76,11 +90,11 @@ public class Student {
     }
 
     public LocalDate getBirthDate() {
-        return BirthDate;
+        return birthDate;
     }
 
     public void setBirthDate(LocalDate birthDate) {
-        BirthDate = birthDate;
+        this.birthDate = birthDate;
     }
 
     public List<PhysicalAssessment> getAssessments() {
@@ -98,7 +112,7 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", neighborhood='" + neighborhood + '\'' +
-                ", BirthDate=" + BirthDate +
+                ", birthDate=" + birthDate +
                 ", assessments=" + assessments +
                 '}';
     }

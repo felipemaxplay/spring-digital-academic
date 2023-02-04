@@ -1,16 +1,29 @@
 package br.com.felipemaxplay.digitalacademic.entity;
 
+import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Entity
+@Table(name = "da_physical_assessment")
 public class PhysicalAssessment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "student")
     private Student student;
+
+    @Column(name = "assessment_date", nullable = false)
     private LocalDate assessmentDate = LocalDate.now();
+
+    @Column(name = "weight", nullable = false, precision = 2)
     private double weight;
+
+    @Column(name = "height", nullable = false, precision = 2)
     private double height;
 
     @Deprecated
