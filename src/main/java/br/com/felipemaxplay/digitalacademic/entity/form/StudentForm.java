@@ -8,6 +8,10 @@ public class StudentForm {
     private String neighborhood;
     private LocalDate birthDate;
 
+    @Deprecated
+    public StudentForm() {
+    }
+
     public StudentForm(String name, String cpf, String neighborhood, LocalDate birthDate) {
         this.name = name;
         this.cpf = cpf;

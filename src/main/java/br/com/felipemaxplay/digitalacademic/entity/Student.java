@@ -47,6 +47,13 @@ public class Student {
         this.assessments = Objects.requireNonNull(assessments);
     }
 
+    public Student(@NonNull String name, @NonNull String cpf, @NonNull String neighborhood, @NonNull LocalDate birthDate) {
+        this.name = Objects.requireNonNull(name);
+        this.cpf = Objects.requireNonNull(cpf);
+        this.neighborhood = Objects.requireNonNull(neighborhood);
+        this.birthDate = Objects.requireNonNull(birthDate);
+    }
+
     public Student(@NonNull Long id, @NonNull String name, @NonNull String cpf, @NonNull String neighborhood,
                    @NonNull LocalDate birthDate, @NonNull List<PhysicalAssessment> assessments) {
         this.id = Objects.requireNonNull(id);
