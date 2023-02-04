@@ -1,6 +1,9 @@
 package br.com.felipemaxplay.digitalacademic.entity;
 
+import org.springframework.lang.NonNull;
+
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Tuition {
     private Long id;
@@ -11,15 +14,15 @@ public class Tuition {
     public Tuition() {
     }
 
-    public Tuition(Student student, LocalDate tuitionDate) {
-        this.student = student;
-        this.tuitionDate = tuitionDate;
+    public Tuition(@NonNull Student student, @NonNull LocalDate tuitionDate) {
+        this.student = Objects.requireNonNull(student);
+        this.tuitionDate = Objects.requireNonNull(tuitionDate);
     }
 
-    public Tuition(Long id, Student student, LocalDate tuitionDate) {
-        this.id = id;
-        this.student = student;
-        this.tuitionDate = tuitionDate;
+    public Tuition(@NonNull Long id, @NonNull Student student, @NonNull LocalDate tuitionDate) {
+        this.id = Objects.requireNonNull(id);
+        this.student = Objects.requireNonNull(student);
+        this.tuitionDate = Objects.requireNonNull(tuitionDate);
     }
 
     public Student getStudent() {

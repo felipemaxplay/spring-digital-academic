@@ -1,36 +1,46 @@
 package br.com.felipemaxplay.digitalacademic.entity;
 
+import org.springframework.lang.NonNull;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Student {
     private Long id;
+
     private String name;
+
     private String cpf;
+
     private  String neighborhood;
+
     private LocalDate BirthDate;
+
     private List<PhysicalAssessment> assessments = new ArrayList<>();
 
     @Deprecated
     public Student() {
     }
 
-    public Student(String name, String cpf, String neighborhood, LocalDate birthDate, List<PhysicalAssessment> assessments) {
-        this.name = name;
-        this.cpf = cpf;
-        this.neighborhood = neighborhood;
-        BirthDate = birthDate;
-        this.assessments = assessments;
+    public Student(@NonNull String name, @NonNull String cpf, @NonNull String neighborhood, @NonNull LocalDate birthDate,
+                   @NonNull List<PhysicalAssessment> assessments) {
+        this.name = Objects.requireNonNull(name);
+        this.cpf = Objects.requireNonNull(cpf);
+        this.neighborhood = Objects.requireNonNull(neighborhood);
+        BirthDate = Objects.requireNonNull(birthDate);
+        this.assessments = Objects.requireNonNull(assessments);
     }
 
-    public Student(Long id, String name, String cpf, String neighborhood, LocalDate birthDate, List<PhysicalAssessment> assessments) {
-        this.id = id;
-        this.name = name;
-        this.cpf = cpf;
-        this.neighborhood = neighborhood;
-        BirthDate = birthDate;
-        this.assessments = assessments;
+    public Student(@NonNull Long id, @NonNull String name, @NonNull String cpf, @NonNull String neighborhood,
+                   @NonNull LocalDate birthDate, @NonNull List<PhysicalAssessment> assessments) {
+        this.id = Objects.requireNonNull(id);
+        this.name = Objects.requireNonNull(name);
+        this.cpf = Objects.requireNonNull(cpf);
+        this.neighborhood = Objects.requireNonNull(neighborhood);
+        BirthDate = Objects.requireNonNull(birthDate);
+        this.assessments = Objects.requireNonNull(assessments);
     }
 
     public Long getId() {
