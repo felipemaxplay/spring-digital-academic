@@ -1,8 +1,14 @@
 package br.com.felipemaxplay.digitalacademic.entity.form;
 
+import jakarta.validation.constraints.NotNull;
+
 public class PhysicalAssessmentForm {
+    @NotNull
     private Long studentId;
+    @NotNull
     private double weight;
+
+    @NotNull
     private double height;
 
     public PhysicalAssessmentForm(Long studentId, double weight, double height) {

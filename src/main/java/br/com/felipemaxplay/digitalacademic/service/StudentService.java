@@ -1,5 +1,6 @@
 package br.com.felipemaxplay.digitalacademic.service;
 
+import br.com.felipemaxplay.digitalacademic.entity.PhysicalAssessment;
 import br.com.felipemaxplay.digitalacademic.entity.Student;
 import br.com.felipemaxplay.digitalacademic.entity.form.StudentForm;
 import br.com.felipemaxplay.digitalacademic.repository.StudentRepository;

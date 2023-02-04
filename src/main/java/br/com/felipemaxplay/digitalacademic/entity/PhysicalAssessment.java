@@ -30,19 +30,17 @@ public class PhysicalAssessment {
     public PhysicalAssessment() {
     }
 
-    public PhysicalAssessment(@NonNull Student student, @NonNull LocalDate assessmentDate, @NonNull double weight,
+    public PhysicalAssessment(@NonNull Student student, @NonNull double weight,
                               @NonNull double height) {
         this.student = Objects.requireNonNull(student);
-        this.assessmentDate = Objects.requireNonNull(assessmentDate);
         this.weight = Objects.requireNonNull(weight);
         this.height = Objects.requireNonNull(height);
     }
 
-    public PhysicalAssessment(@NonNull Long id, @NonNull Student student, @NonNull LocalDate assessmentDate,
-                              @NonNull double weight, @NonNull double height) {
+    public PhysicalAssessment(@NonNull Long id, @NonNull Student student, @NonNull double weight,
+                              @NonNull double height) {
         this.id = Objects.requireNonNull(id);
         this.student = Objects.requireNonNull(student);
-        this.assessmentDate = Objects.requireNonNull(assessmentDate);
         this.weight = Objects.requireNonNull(weight);
         this.height = Objects.requireNonNull(height);
     }

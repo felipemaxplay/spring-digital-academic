@@ -1,11 +1,18 @@
 package br.com.felipemaxplay.digitalacademic.entity.form;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
 import java.time.LocalDate;
 
 public class StudentForm {
+    @NotEmpty
     private String name;
+    @NotEmpty
     private String cpf;
+    @NotEmpty
     private String neighborhood;
+    @NotNull
     private LocalDate birthDate;
 
     @Deprecated
