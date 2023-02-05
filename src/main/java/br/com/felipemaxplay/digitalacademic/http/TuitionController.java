@@ -22,8 +22,8 @@ public class TuitionController implements ITuitionController {
     @Override
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Tuition> getAllTuition() {
-        return tuitionService.getAll();
+    public List<Tuition> getAllTuition(@RequestParam(name = "neighborhood", required = false) String neighborhood) {
+        return tuitionService.getAll(neighborhood);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package br.com.felipemaxplay.digitalacademic.service;
 
+import br.com.felipemaxplay.digitalacademic.config.utils.JavaTimeUtils;
 import br.com.felipemaxplay.digitalacademic.entity.PhysicalAssessment;
 import br.com.felipemaxplay.digitalacademic.entity.Student;
 import br.com.felipemaxplay.digitalacademic.entity.form.StudentForm;
@@ -7,6 +8,7 @@ import br.com.felipemaxplay.digitalacademic.repository.StudentRepository;
 import jakarta.persistence.NoResultException;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -29,8 +31,13 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public List<Student> getAll() {
-        return repository.findAll();
+    public List<Student> getAll(String birthDate) {
+        if(birthDate == null) {
+            return repository.findAll();
+        } else {
+            LocalDate date = LocalDate.parse(birthDate, JavaTimeUtils.LOCAL_DATE_FORMATTER);
+            return repository.findByBirthDate(date);
+        }
     }
 
     @Override

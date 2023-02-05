@@ -1,13 +1,11 @@
 package br.com.felipemaxplay.digitalacademic.service;
 
-import br.com.felipemaxplay.digitalacademic.entity.PhysicalAssessment;
 import br.com.felipemaxplay.digitalacademic.entity.Student;
 import br.com.felipemaxplay.digitalacademic.entity.Tuition;
 import br.com.felipemaxplay.digitalacademic.entity.form.TuitionForm;
 import br.com.felipemaxplay.digitalacademic.repository.StudentRepository;
 import br.com.felipemaxplay.digitalacademic.repository.TuitionRepository;
 import jakarta.persistence.NoResultException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,8 +37,12 @@ public class TuitionService implements ITuitionService {
     }
 
     @Override
-    public List<Tuition> getAll() {
-        return repository.findAll();
+    public List<Tuition> getAll(String neighborhood) {
+        if (neighborhood == null) {
+            return repository.findAll();
+        } else {
+            return repository.findByStudentNeighborhood(neighborhood);
+        }
     }
 
     @Override

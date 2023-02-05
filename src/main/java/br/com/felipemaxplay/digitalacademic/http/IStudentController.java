@@ -13,7 +13,7 @@ import java.util.List;
 public interface IStudentController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    List<Student> getAll();
+    List<Student> getAll(@RequestParam(value = "birthDate", required = false) String birthDate);
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

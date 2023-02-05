@@ -10,7 +10,7 @@ public interface ITuitionService {
 
     Tuition getById(Long id);
 
-    List<Tuition> getAll();
+    List<Tuition> getAll(String neighborhood);
 
     void deleteById(Long id);
 }

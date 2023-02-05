@@ -5,17 +5,14 @@ import br.com.felipemaxplay.digitalacademic.entity.form.TuitionForm;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 public interface ITuitionController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    List<Tuition> getAllTuition();
+    List<Tuition> getAllTuition(@RequestParam(name = "neighborhood", required = false) String neighborhood);
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

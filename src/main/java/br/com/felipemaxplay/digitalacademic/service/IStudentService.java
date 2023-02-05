@@ -11,7 +11,7 @@ public interface IStudentService {
 
     Student getById(Long id);
 
-    List<Student> getAll();
+    List<Student> getAll(String birthDate);
 
     Student updateById(Long id, StudentForm formUpdate);
 

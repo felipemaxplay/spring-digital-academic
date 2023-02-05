@@ -23,8 +23,8 @@ public class StudentController implements IStudentController {
     @Override
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Student> getAll() {
-        return studentService.getAll();
+    public List<Student> getAll(@RequestParam(value = "birthDate", required = false) String birthDate) {
+        return studentService.getAll(birthDate);
     }
 
     @Override
