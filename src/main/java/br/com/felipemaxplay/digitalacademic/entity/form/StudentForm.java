@@ -10,13 +10,13 @@ import java.time.LocalDate;
 
 public class StudentForm {
     @NotEmpty
-    @Size(min = 3, max = 50)
+    @Size(min = 3, max = 50, message = "The camp needs a minimum of ${min} and a max of ${max} characters.")
     private String name;
     @NotEmpty
     @CPF(message = "${validatedValue} is invalid")
     private String cpf;
     @NotEmpty
-    @Size(min = 3, max = 60)
+    @Size(min = 3, max = 60, message = "The camp needs a minimum of ${min} and a max of ${max} characters.")
     private String neighborhood;
     @NotNull
     @Past(message = "${validatedValue} is date invalid")
