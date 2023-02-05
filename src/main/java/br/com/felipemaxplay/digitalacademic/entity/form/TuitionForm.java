@@ -1,6 +1,9 @@
 package br.com.felipemaxplay.digitalacademic.entity.form;
 
+import jakarta.validation.constraints.NotNull;
+
 public class TuitionForm {
+    @NotNull
     private long studentId;
 
     public TuitionForm(long studentId) {

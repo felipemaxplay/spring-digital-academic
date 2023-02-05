@@ -2,17 +2,24 @@ package br.com.felipemaxplay.digitalacademic.entity.form;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
 public class StudentForm {
     @NotEmpty
+    @Size(min = 3, max = 50)
     private String name;
     @NotEmpty
+    @CPF(message = "${validatedValue} is invalid")
     private String cpf;
     @NotEmpty
+    @Size(min = 3, max = 60)
     private String neighborhood;
     @NotNull
+    @Past(message = "${validatedValue} is date invalid")
     private LocalDate birthDate;
 
     @Deprecated
