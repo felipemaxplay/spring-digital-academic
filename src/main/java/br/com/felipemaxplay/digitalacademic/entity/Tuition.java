@@ -24,15 +24,13 @@ public class Tuition {
     public Tuition() {
     }
 
-    public Tuition(@NonNull Student student, @NonNull LocalDate tuitionDate) {
+    public Tuition(@NonNull Student student) {
         this.student = Objects.requireNonNull(student);
-        this.tuitionDate = Objects.requireNonNull(tuitionDate);
     }
 
-    public Tuition(@NonNull Long id, @NonNull Student student, @NonNull LocalDate tuitionDate) {
+    public Tuition(@NonNull Long id, @NonNull Student student) {
         this.id = Objects.requireNonNull(id);
         this.student = Objects.requireNonNull(student);
-        this.tuitionDate = Objects.requireNonNull(tuitionDate);
     }
 
     public Student getStudent() {

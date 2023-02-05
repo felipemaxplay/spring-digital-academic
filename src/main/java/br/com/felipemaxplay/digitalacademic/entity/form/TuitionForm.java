@@ -6,6 +6,10 @@ public class TuitionForm {
     @NotNull
     private long studentId;
 
+    @Deprecated
+    public TuitionForm() {
+    }
+
     public TuitionForm(long studentId) {
         this.studentId = studentId;
     }
